@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Xgram</string>
+    <string name="searchbar_hint">Cari Seseorang . . .</string>
+    <string name="name_person">David Arrozaqi</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="followers">%1$d Followers</string>
+    <string name="following">%1$d Following</string>
+    <string name="followers_tab">Followers</string>
+    <string name="following_tab">Following</string>
+    <string name="username">Username</string>
+    <string name="nickname">Nickname</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="appearance">Appearance</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="theme">Theme</string>
+</resources>
