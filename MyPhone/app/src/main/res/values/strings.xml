@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">My Phone</string>
+
+    <string name="gadget_name">Nama Handphone</string>
+    <string name="description">Deskripsi</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="about_me">About Me</string>
+    <string name="my_name">David Arrozaqi</string>
+    <string name="my_email">a129d4ky4116@bangkit.academy</string>
+    <string name="share">Share</string>
+    <string-array name="data_name">
+        <item>HUAWEI Mate 60 Pro+</item>
+        <item>HUAWEI P60 Pro</item>
+        <item>Apple iPhone 15 Pro Max</item>
+        <item>Apple iPhone 15 Pro</item>
+        <item>Google Pixel 8 Pro</item>
+        <item>OPPO Find X6 Pro</item>
+        <item>HONOR Magic5 Pro</item>
+        <item>OPPO Find X6</item>
+        <item>VIVO X100 Pro</item>
+        <item>HUAWEI Mate 50 Pro</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>Memiliki hasil foto yang sangat baik secara menyeluruh, kamera HUAWEI Mate 60 Pro+ sungguh cocok untuk segala kondisi. Performa kamera ponsel begitu cocok untuk memotret teman dan keluarga, dapat menghasilkan tone warna kulit yang sangat akurat bahkan pada kondisi tersulit sekalipun.</item>
+        <item>HUAWEI P60 Pro termasuk dalam jajaran HP flagship dengan kamera terbaik di dunia. Ponsel memiliki peningkatan kualitas gambar pada kondisi minim cahaya ekstrem (gelap gulita), termasuk pada hasil foto yang ditangkap pakai kamera periskop telefoto.</item>
+        <item>IPhone 15 Pro Max memiliki kemampuan pembesaran optis hingga 5x, meningkat dari yang semula hanya 3x pada iPhone 14 Pro Max. Lalu, kemampuan stabilisasi di kamera telefoto meningkat dari awalnya OIS biasa menjadi sensor-shift OIS.</item>
+        <item>Kendati dari segi kasta ia berada di bawah iPhone 15 Pro Max, namun varian Pro "reguler" ini tetap memiliki kemampuan kamera yang luar biasa. Ia memang tidak dikemas dengan kamera periskop seperti Pro Max, lantaran hanya punya telefoto biasa.</item>
+        <item>Tidak berbeda dengan generasi sebelumnya, Google Pixel 8 Pro masih pertahankan kamera 50 MP yang sama namun kini diklaim punya sensitivitas lebih baik saat menangkap cahaya. Kamera ultrawide di HP ini menggunakan resolusi 48 MP, disinyalir pula dapat menangkap 105 persen lebih banyak cahaya. Untuk pengambilan gambar Macro Focus, HP ini juga menggunakan kamera ultrawide dengan kemampuan fokus 30 persen lebih dekat dari generasi sebelumnya.</item>
+        <item>Buat yang ingin hasilkan foto ciamik dari jarak jauh, OPPO FInd X6 Pro bisa jadi pilihan tepat. Ponsel flagship ini menyajikan sensor Sony IMX 989 dengan ukuran 1 inci dan sensor Sony IMX 890 sebagai kamera telefotonya. Kedua kamera ini tentu sudah disertai fitur OIS untuk meredam guncangan.</item>
+        <item>Ponsel ini sempat menduduki peringkat no. 1 sebagai ponsel dengan kamera terbaik versi DxOMark. Jelas saja, HONOR Magic5 Pro dilengkapi dengan 50 MP Wide Camera, 50 MP Ultra Wide Camera, serta 50 MP Periscope Telephoto Camera yang canggihnya bukan main.</item>
+        <item>OPPO Find X6 reguler ini tetap punya kualitas kamera yang setara dengan versi Pro. Ponsel ini sanggup hasilkan pencahayaan dan warna yang stabil pada perekaman video. Lalu, hasil pemotretan subjek manusia juga sangat bagus lantaran bisa hasilkan warna tone kulit yang natural.</item>
+        <item>Tiga kamera belakang vivo X100 Pro masing-masing punya resolusi 50 MP. Kamera utama memiliki ukuran sensor sedikit di atas 1 inci, atau lebih tepatnya 1/0.98 inci. Selain itu, kamera pendampingnya adalah sensor ultrawide dan telefoto.</item>
+        <item>Dengan berbekal tiga lensa kamera di belakang dan dua kamera di depan, HUAWEI Mate 50 Pro mampu menduduki salah satu posisi tertinggi sebagai HP dengan kamera terbaik. Di bagian belakangnya ada sensor 50 MP wide-angle, kamera 64 MP periskop telefoto, dan sensor 13 MP ultrawide. Hasil foto pada kamera HP ini sangat bagus, bahkan tetap detail dan tidak blur sedikit pun saat pembesaran hingga 200x.</item>
+    </string-array>
+    <string-array name="second_description">
+        <item>Ketika melakukan pembesaran (zoom), HP ini juga dapat berikan hasil foto yang detail dan tajam tanpa kehadiran noise. Tetap jernih dan memukau. Apertur-nya yang bervariatif dapat menyesuaikan diri untuk menjaga subjek tetap dalam fokus, meskipun ada perubahan dalam jumlah orang yang hendak difoto.</item>
+        <item>Maka, jangan kaget kalau hasil foto malam hari di HP ini malah terlihat seperti siang hari, karena kameranya memang sebagus itu. Kamera HUAWEI P60 Pro juga sanggup berikan ketajaman dan kedalaman ruang yang baik ketika memotret wajah subjek di berbagai kondisi.</item>
+        <item>IPhone 15 Pro Max juga kini mampu merekam video 3D spasial yang nantinya hasil video bisa dinikmati pada perangkat VR (Virtual Reality). Perihal kualitas foto dan video, kamera iPhone 15 Pro Max mampu berikan tingkat pencahayaan yang terang pada pemotretan malam hari.</item>
+        <item>Penambahan fitur minor satu-satunya pada iPhone 15 Pro (dibandingkan iPhone 14 Pro) adalah kemampuan merekam video spasial 3D, fitur yang juga dimiliki pada varian Pro Max-nya. IPhone 15 Pro sendiri masih menggunakan sensor utama 48 MP pada jenis Sony IMX 803, sama seperti iPhone 14 Pro. Segala peningkatan kualitas foto yang terjadi berasal dari sisi software pada iPhone 15 Pro.</item>
+        <item>Ada fitur baru yang ditambahkan pada Google Pixel 8 Pro, namanya adalah Best Take. Fitur ini dapat memotret grup foto secara berurutan (burst) dan nantinya, algoritma ponsel dapat menggabungkan beberapa hasil foto untuk menghasilkan wajah-wajah subjek foto pada kondisi terbaik (tidak berkedip).</item>
+        <item>Untuk sensor ultrawide-nya, OPPO Find X6 Pro andalkan sensor Sony IMX 890 yang sekaligus bisa digunakan untuk hasilkan foto makro (close up). Kamera telefoto di HP ini bisa melakukan pembesaran optis hingga 3x, pembesaran hibrida hingga 6x, serta pembesaran digital hingga 120x.</item>
+        <item>Ponsel besutan brand yang masih satu naungan dengan HUAWEI ini memiliki keunggulan di sejumlah aspek, seperti kemampuannya tingkatkan ketajaman gambar, pencahayaan subjek yang begitu baik, hingga melimpahnya informasi yang ditangkap untuk hasilkan rentang dinamis kelas dunia.</item>
+        <item>Mau itu perekaman video maupun pemotretan foto, pada siang maupun malam hari, detail yang bagus dan bintik-bintik (noise) yang minim adalah sebuah hasil yang selalu bisa didapatkan dari OPPO Find X6.</item>
+        <item>Skor DxOMark pada vivo X100 Pro adalah 150 poin, terpecah menjadi 149 poin untuk fotografi dan 145 poin untuk videografi. Kemampuan HP ini sangat baik dari segi pemotretan dan perekaman video, mampu hasilkan noise yang sedikit pada keduanya.</item>
+        <item>Ruang kedalaman pada kondisi pencahayaan cukup juga sangat dalam, terutama saat memotret foto grup dengan banyak subjek. Noise atau bintik-bintik pada hasil foto siang dan malam hari juga tergolong minim.</item>
+    </string-array>
+    <string-array name="data_photo">
+        <item>https://fdn2.gsmarena.com/vv/pics/huawei/huawei-mate-60-pro-plus-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p60-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x6-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/honor/honor-magic5-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/oppo/oppo-find-x6-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/vivo/vivo-x100-pro-1.jpg</item>
+        <item>https://fdn2.gsmarena.com/vv/pics/huawei/huawei-mate-50-pro-1.jpg</item>
+    </string-array>
+</resources>
