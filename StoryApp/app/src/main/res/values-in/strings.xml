@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplikasi Cerita</string>
+    <string name="error_password">Kata sandi harus menggunakan 8 Karakter</string>
+    <string name="error_email">Email harus menggunakan format yang valid</string>
+    <string name="welcome_login">Selamat Datang Kembali!</string>
+    <string name="welcome_register">Selamat Datang di StoryApp</string>
+    <string name="login">Masuk</string>
+    <string name="password">Kata Sandi</string>
+    <string name="email">Email</string>
+    <string name="text_validation">Tidak punya akun? <u><b>Daftar</b></u></string>
+    <string name="username">Nama Pengguna</string>
+    <string name="register">Daftar</string>
+    <string name="story_image">Gambar Cerita</string>
+    <string name="add_story">Tambah Cerita</string>
+    <string name="failed_load_data">Gagal Memuat Data</string>
+    <string name="failed_to_load_data">Gagal memuat data</string>
+    <string name="menu_home">Beranda</string>
+    <string name="menu_maps">Peta</string>
+    <string name="menu_settings">Pengaturan</string>
+    <string name="change_language">Bahasa</string>
+    <string name="log_out">Keluar</string>
+    <string name="setting">Pengaturan</string>
+    <string name="detail">Detail</string>
+    <string name="title_add_story">Tambah Cerita</string>
+    <string name="hint_description">Deskripsi</string>
+    <string name="button_take_picture">Tombol ambil gambar</string>
+    <string name="button_gallery">Tombol galeri</string>
+    <string name="button_post">Kirim</string>
+    <string name="email_field_empty">Kolom email kosong!</string>
+    <string name="password_field_empty">Kolom kata sandi kosong!</string>
+    <string name="error_fetching">Kesalahan Pengambilan</string>
+    <string name="hello_it">Halo, %1$s!</string>
+    <string name="error_uploading_story">Kesalahan mengunggah cerita</string>
+    <string name="you_are_going_to_be_logged_out_from_the_app">Anda akan keluar dari aplikasi</string>
+    <string name="yes">ya</string>
+    <string name="no">tidak</string>
+</resources>
