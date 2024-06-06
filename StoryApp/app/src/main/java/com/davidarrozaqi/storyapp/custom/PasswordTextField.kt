@@ -24,5 +24,5 @@ class PasswordTextField @JvmOverloads constructor(context: Context, attrs: Attri
             override fun afterTextChanged(p0: Editable?) {}
         })
     }
-    
+
 }

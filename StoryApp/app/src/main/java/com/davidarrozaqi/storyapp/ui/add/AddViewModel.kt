@@ -15,9 +15,9 @@ class AddViewModel(private val repository: StoryRepository) : ViewModel() {
         MutableLiveData<ApiResponse<StoryAddResponse>>()
     val uploadStoryResult: LiveData<ApiResponse<StoryAddResponse>> = _upLoadStoryResult
 
-    fun uploadStory(imageUri: Uri, description: String){
+    fun uploadStory(imageUri: Uri, description: String, lat: Double, long: Double) {
         viewModelScope.launch {
-            repository.addStory(imageUri, description).collect {
+            repository.addStory(imageUri, description, lat, long).collect {
                 _upLoadStoryResult.value = it
             }
         }

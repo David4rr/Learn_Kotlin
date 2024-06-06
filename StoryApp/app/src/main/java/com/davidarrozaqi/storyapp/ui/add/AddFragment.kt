@@ -1,6 +1,9 @@
 package com.davidarrozaqi.storyapp.ui.add
 
+import android.Manifest
 import android.app.Activity
+import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +11,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.davidarrozaqi.storyapp.R
 import com.davidarrozaqi.storyapp.base.BaseFragment
 import com.davidarrozaqi.storyapp.data.dto.network.ApiResponse
 import com.davidarrozaqi.storyapp.databinding.FragmentAddBinding
 import com.davidarrozaqi.storyapp.utils.getImageUri
 import com.davidarrozaqi.storyapp.utils.showToast
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.yalantis.ucrop.UCrop
 import org.koin.android.ext.android.inject
 import java.io.File
@@ -31,6 +39,9 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
     }
 
     private val viewModel: AddViewModel by inject()
+    private var lat: Double = 0.0
+    private var long: Double = 0.0
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     private var currentUri: Uri? = null
     private val launchGallery = registerForActivityResult(
@@ -73,11 +84,16 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
     }
 
     private fun setPreview() {
-        binding.ivStoryImage.setImageURI(currentUri)
+        Glide.with(requireContext())
+            .load(currentUri)
+            .centerCrop()
+            .transform(RoundedCorners(32))
+            .into(binding.ivStoryImage)
     }
 
     override fun doSomething() {
         super.doSomething()
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         initListener()
         initObserver()
@@ -107,6 +123,8 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
                     viewModel.uploadStory(
                         currentUri!!,
                         description,
+                        lat,
+                        long,
                     )
                 } else {
                     showToast(
@@ -115,6 +133,59 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
                     )
                 }
             }
+            smLocation.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    getMyCurrentLocation()
+                }
+            }
+        }
+    }
+
+    private fun checkPermission(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            requireActivity(), permission
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private val requestPermissionLaunch = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        when {
+            permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false -> {
+                getMyCurrentLocation()
+            }
+
+            permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false -> {
+                getMyCurrentLocation()
+            }
+
+            else -> {}
+        }
+    }
+
+    private fun getMyCurrentLocation() {
+        if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) && checkPermission(
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        ) {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                if (location != null) {
+                    lat = location.latitude
+                    long = location.longitude
+                } else {
+                    showToast(
+                        requireActivity(),
+                        getString(R.string.location_is_not_found_try_again)
+                    )
+                }
+            }
+        } else {
+            requestPermissionLaunch.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+            )
         }
     }
 

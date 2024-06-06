@@ -2,16 +2,14 @@ package com.davidarrozaqi.storyapp.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.davidarrozaqi.storyapp.R
+import com.davidarrozaqi.storyapp.adapter.LoadingStateAdapter
 import com.davidarrozaqi.storyapp.adapter.StoryAdapter
 import com.davidarrozaqi.storyapp.base.BaseFragment
-import com.davidarrozaqi.storyapp.data.dto.network.ApiResponse
 import com.davidarrozaqi.storyapp.databinding.FragmentHomeBinding
-import com.davidarrozaqi.storyapp.utils.showToast
 import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -27,7 +25,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun doSomething() {
         super.doSomething()
-        viewModel.getAllStories()
 
         initAdapterList()
         initObserver()
@@ -44,7 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun initObserver() {
         with(viewModel) {
-            username.observe(viewLifecycleOwner){
+            username.observe(viewLifecycleOwner) {
                 binding.topBar.title = getString(R.string.hello_it, it)
             }
         }
@@ -54,30 +51,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val storyAdapter = StoryAdapter()
         val linearLayoutManager =
             LinearLayoutManager(requireContext())
-        binding.rvStory.adapter = storyAdapter
-        binding.rvStory.layoutManager = linearLayoutManager
-        viewModel.storyResult.observe(viewLifecycleOwner){
-            when (it) {
-                is ApiResponse.Loading -> {
-                    binding.errorFetching.root.visibility = View.GONE
-                    binding.cpIndicator.visibility = View.VISIBLE
-                }
-
-                is ApiResponse.Success -> {
-                    binding.cpIndicator.visibility = View.GONE
-                    storyAdapter.submitList(it.data.listStory)
-                }
-
-                else -> {
-                    binding.cpIndicator.visibility = View.GONE
-                    binding.errorFetching.root.visibility = View.VISIBLE
-                    showToast(
-                        requireActivity(),
-                        getString(R.string.error_fetching)
-                    )
-                }
+        binding.rvStory.adapter = storyAdapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                storyAdapter.retry()
             }
+        )
+        binding.rvStory.layoutManager = linearLayoutManager
+        viewModel.storyResult.observe(viewLifecycleOwner) {
+            storyAdapter.submitData(lifecycle, it)
         }
+        storyAdapter.refresh()
+    }
+
+    override fun onResume() {
+        initAdapterList()
+        super.onResume()
     }
 
 }

@@ -8,6 +8,12 @@
         android:title="@string/menu_home" />
 
     <item
+        android:id="@+id/mapsFragment"
+        android:icon="@drawable/baseline_map_24"
+        android:iconTint="@color/pink_600"
+        android:title="@string/menu_maps" />
+
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/baseline_settings_24"
         android:iconTint="@color/pink_600"

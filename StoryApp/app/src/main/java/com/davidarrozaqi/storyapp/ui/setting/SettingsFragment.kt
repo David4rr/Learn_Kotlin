@@ -30,7 +30,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
     }
 
     private fun initListener() {
-        binding.actionLogout.setOnClickListener{
+        binding.actionLogout.setOnClickListener {
             showChooserDialog(
                 title = getString(R.string.log_out),
                 message = getString(R.string.you_are_going_to_be_logged_out_from_the_app),
@@ -48,7 +48,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     private fun logOut() {
         viewModel.logOut().apply {
-            if (this){
+            if (this) {
                 val direction =
                     SettingsFragmentDirections.actionSettingsFragmentToAuthFragment()
                 findNavController().navigate(direction)

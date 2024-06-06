@@ -24,13 +24,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         super.doSomething()
         item = DetailFragmentArgs.fromBundle(requireArguments()).story
 
-        with(binding){
+        with(binding) {
             Glide.with(ivStoryImage.context)
                 .load(item?.photoUrl)
                 .into(ivStoryImage)
             tvUserStory.text = item?.name
             tvDescription.text = item?.description
-            tvTimestamp.text= item?.createdAt
+            tvTimestamp.text = item?.createdAt
             topBar.setNavigationOnClickListener {
                 findNavController().popBackStack()
             }

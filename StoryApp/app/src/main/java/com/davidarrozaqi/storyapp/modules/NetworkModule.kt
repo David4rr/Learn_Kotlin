@@ -1,5 +1,6 @@
 package com.davidarrozaqi.storyapp.modules
 
+import com.davidarrozaqi.storyapp.BuildConfig
 import com.davidarrozaqi.storyapp.utils.HeaderInterceptor
 import com.davidarrozaqi.storyapp.data.network.StoryService
 import com.davidarrozaqi.storyapp.utils.ConstVal.BASE_URL
@@ -19,13 +20,18 @@ val networkModule = module {
     single {
         OkHttpClient.Builder()
             .addInterceptor(getHeaderInterceptor(get()))
-            .addInterceptor(HttpLoggingInterceptor().setLevel(
-                HttpLoggingInterceptor.Level.BODY
-            ))
+            .addInterceptor(
+                HttpLoggingInterceptor().setLevel(
+                    if (BuildConfig.DEBUG)
+                        HttpLoggingInterceptor.Level.BODY
+                    else
+                        HttpLoggingInterceptor.Level.NONE
+                )
+            )
             .build()
     }
     single {
-       Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+        Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     }
     single {
         Retrofit.Builder()

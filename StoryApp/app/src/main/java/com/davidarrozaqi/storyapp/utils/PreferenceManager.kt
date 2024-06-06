@@ -12,7 +12,7 @@ class PreferenceManager(context: Context) {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     private val editor = prefs.edit()
 
-    fun setStringPreference(prefKey: String, value: String) {
+    private fun setStringPreference(prefKey: String, value: String) {
         editor.putString(prefKey, value)
         editor.apply()
     }

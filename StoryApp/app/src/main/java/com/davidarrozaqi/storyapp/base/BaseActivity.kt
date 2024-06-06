@@ -6,7 +6,7 @@ import androidx.viewbinding.ViewBinding
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     lateinit var binding: VB
-    abstract fun assignBinding() : VB
+    abstract fun assignBinding(): VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initActivity()
@@ -17,7 +17,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         initSomething()
     }
 
-    open fun initSomething(){}
+    open fun initSomething() {}
 
-    open fun initActivity(){}
+    open fun initActivity() {}
 }

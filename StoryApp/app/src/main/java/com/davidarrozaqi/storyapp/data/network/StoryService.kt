@@ -13,6 +13,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Query
 
 interface StoryService {
     @POST("register")
@@ -26,12 +27,22 @@ interface StoryService {
     ): LoginResponse
 
     @GET("stories")
-    suspend fun getAllStories(): StoryALlResponse
+    suspend fun getAllStories(
+        @Query("page") page: Int?,
+        @Query("size") size: Int?,
+    ): StoryALlResponse
+
+    @GET("stories")
+    suspend fun getAllWithLocation(
+        @Query("location") location: Int = 1
+    ) : StoryALlResponse
 
     @Multipart
     @POST("stories")
     suspend fun addNewStory(
         @Part photo: MultipartBody.Part,
         @Part("description") description: RequestBody,
+        @Part("lat") lat: Double,
+        @Part("lon") lon: Double
     ): StoryAddResponse
 }

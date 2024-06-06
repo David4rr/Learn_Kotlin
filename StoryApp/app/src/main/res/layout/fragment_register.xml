@@ -78,7 +78,7 @@
 
     <include
         android:id="@+id/loading_button"
-        layout="@layout/loading"
+        layout="@layout/loading_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"

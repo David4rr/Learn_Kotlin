@@ -14,9 +14,9 @@ class LoginViewModel(val repo: AuthRepository) : ViewModel() {
     private val _loginResult = MutableLiveData<ApiResponse<LoginResponse>>()
     val loginResult: LiveData<ApiResponse<LoginResponse>> = _loginResult
 
-    fun login(user: LoginRequest){
+    fun login(user: LoginRequest) {
         viewModelScope.launch {
-            repo.login(user).collect{
+            repo.login(user).collect {
                 _loginResult.value = it
             }
         }

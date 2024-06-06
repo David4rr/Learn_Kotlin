@@ -10,11 +10,11 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.davidarrozaqi.storyapp.R
 
 class EmailTextField @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
-AppCompatEditText(context, attrs){
+    AppCompatEditText(context, attrs) {
 
     init {
         inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS or InputType.TYPE_CLASS_TEXT
-        addTextChangedListener(object: TextWatcher {
+        addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 

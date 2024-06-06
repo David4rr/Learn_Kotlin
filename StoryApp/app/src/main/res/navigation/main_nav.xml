@@ -81,4 +81,9 @@
         android:name="com.davidarrozaqi.storyapp.ui.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.davidarrozaqi.storyapp.ui.map.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

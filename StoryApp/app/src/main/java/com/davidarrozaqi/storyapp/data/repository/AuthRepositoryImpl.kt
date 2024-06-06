@@ -23,14 +23,14 @@ class AuthRepositoryImpl(
         try {
             emit(ApiResponse.Loading)
             val response = storyService.login(user)
-            if (!response.error){
+            if (!response.error) {
                 val userResponse = response.loginResult
                 preferenceManager.setLoginPrefs(userResponse)
 
                 reloadKoinModules()
                 emit(ApiResponse.Success(response))
             } else {
-               emit(ApiResponse.Error(response.message))
+                emit(ApiResponse.Error(response.message))
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -38,16 +38,16 @@ class AuthRepositoryImpl(
         }
     }
 
-    override fun register(user: RegisterRequest): Flow<ApiResponse<RegisterResponse>> = flow{
+    override fun register(user: RegisterRequest): Flow<ApiResponse<RegisterResponse>> = flow {
         try {
             emit(ApiResponse.Loading)
             val response = storyService.register(user)
-            if (!response.error){
+            if (!response.error) {
                 emit(ApiResponse.Success(response))
             } else {
                 emit(ApiResponse.Error(response.message))
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
             emit(ApiResponse.Error(e.message.toString()))
         }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
@@ -54,6 +55,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
     }
 }
 
@@ -112,6 +116,24 @@ dependencies {
 
     // Paging
     implementation(libs.androidx.paging.runtime.ktx)
+
+    // Maps
+    implementation(libs.play.services.maps)
+
+    // Fused Location
+    implementation(libs.play.services.maps.v1800)
+    implementation(libs.play.services.location)
+
+    // Test
+    testImplementation(libs.insert.koin.koin.test)
+    testImplementation(libs.insert.koin.koin.test.junit4)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+
+    androidTestImplementation(libs.androidx.core.testing)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

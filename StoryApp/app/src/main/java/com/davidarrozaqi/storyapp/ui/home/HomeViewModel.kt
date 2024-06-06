@@ -4,32 +4,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.davidarrozaqi.storyapp.data.dto.network.ApiResponse
-import com.davidarrozaqi.storyapp.data.dto.story.StoryALlResponse
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.davidarrozaqi.storyapp.data.dto.story.StoryResponse
 import com.davidarrozaqi.storyapp.data.repository.StoryRepository
 import com.davidarrozaqi.storyapp.utils.PreferenceManager
-import kotlinx.coroutines.launch
 
 class HomeViewModel(
     val repository: StoryRepository,
-    val pref: PreferenceManager
+    private val pref: PreferenceManager
 ) : ViewModel() {
     private val _username = MutableLiveData<String>()
     val username: LiveData<String> = _username
 
-    private var  _storyResult = MutableLiveData<ApiResponse<StoryALlResponse>>()
-    val storyResult: LiveData<ApiResponse<StoryALlResponse>> = _storyResult
+    val storyResult: LiveData<PagingData<StoryResponse>> =
+        repository.getAllStories(3).cachedIn(viewModelScope)
 
-    fun getCurrentUserName(){
+    private fun getCurrentUserName() {
         _username.value = pref.getName
-    }
-
-    fun getAllStories(){
-        viewModelScope.launch {
-            repository.getAllStories().collect{
-                _storyResult.value = it
-            }
-        }
     }
 
     init {

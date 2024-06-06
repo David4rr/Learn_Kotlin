@@ -3,19 +3,19 @@ package com.davidarrozaqi.storyapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.davidarrozaqi.storyapp.data.dto.story.StoryResponse
 import com.davidarrozaqi.storyapp.databinding.StoryItemBinding
 import com.davidarrozaqi.storyapp.ui.home.HomeFragmentDirections
 
-class StoryAdapter : ListAdapter<StoryResponse, StoryAdapter.StoryViewHolder>(DIFF_CALLBACK) {
+class StoryAdapter : PagingDataAdapter<StoryResponse, StoryAdapter.StoryViewHolder>(DIFF_CALLBACK) {
 
-    class StoryViewHolder(val binding: StoryItemBinding) : ViewHolder(binding.root){
-        fun bind(item: StoryResponse){
-            with(binding){
+    class StoryViewHolder(val binding: StoryItemBinding) : ViewHolder(binding.root) {
+        fun bind(item: StoryResponse) {
+            with(binding) {
                 Glide.with(ivStoryImage.context)
                     .load(item.photoUrl)
                     .into(ivStoryImage)
@@ -37,9 +37,9 @@ class StoryAdapter : ListAdapter<StoryResponse, StoryAdapter.StoryViewHolder>(DI
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
-       val itemStory = StoryItemBinding.inflate(
-           LayoutInflater.from(parent.context), parent, false
-       )
+        val itemStory = StoryItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return StoryViewHolder(itemStory)
     }
 
@@ -48,8 +48,8 @@ class StoryAdapter : ListAdapter<StoryResponse, StoryAdapter.StoryViewHolder>(DI
         if (item != null) holder.bind(item)
     }
 
-    companion object{
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryResponse>(){
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryResponse>() {
             override fun areItemsTheSame(oldItem: StoryResponse, newItem: StoryResponse): Boolean {
                 return oldItem == newItem
             }

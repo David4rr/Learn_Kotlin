@@ -72,6 +72,25 @@
             app:layout_constraintTop_toBottomOf="@+id/edt_add_description"
             app:tint="@color/white" />
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/sm_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/camera_button"
+            app:layout_constraintTop_toBottomOf="@+id/edt_add_description"
+            app:layout_constraintBottom_toTopOf="@+id/iv_storyImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:thumbTint="@color/pink_500"/>
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location"
+            app:layout_constraintTop_toBottomOf="@+id/sm_location"
+            app:layout_constraintStart_toEndOf="@+id/camera_button"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <ImageView
             android:id="@+id/iv_storyImage"
             android:layout_width="0dp"
@@ -102,7 +121,7 @@
 
         <include
             android:id="@+id/loading_button"
-            layout="@layout/loading"
+            layout="@layout/loading_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="gone"
